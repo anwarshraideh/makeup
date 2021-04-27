@@ -18,11 +18,10 @@ app.use(express.static('./public'));
 app.set('view engine', 'ejs');
 
 
-// const client = new pg.Client(process.env.DATABASE_URL);
+const client = new pg.Client(process.env.DATABASE_URL);
 
 // const client = new pg.Client({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false } });
 
-const client = new pg.Client( { connectionString: process.env.DATABASE_URL, ssl: process.env.LOCALLY ? false : {rejectUnauthorized: false}} );
 
 
 app.get('/',homeHandeler);
@@ -71,7 +70,7 @@ function insertHandler(req,res) {
 
     client.query(sql,safeValues)
     .then(()=>{
-        res.redirct('/myProduct');
+        res.redirect('/myProduct');
     })
     
 }
@@ -130,9 +129,9 @@ function Deletedetails(req,res) {
 
     let id = req.params.id;
     let safe=[id];
-    let sql='DELET FROM table1 WHERE id=$1;';
+    let sql='DELETE FROM table1 WHERE id=$1;';
 
-    client.query(sql,safeValues)
+    client.query(sql,safe)
     .then(()=>{
 
         res.redirect('/myProduct');
