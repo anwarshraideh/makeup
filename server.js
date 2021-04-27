@@ -79,7 +79,7 @@ app.get ('/myProduct',getMyFavProduct);
 
 function getMyFavProduct(req,res) {
 
-    let sql='SELECT * FROM table1';
+    let sql = ' SELECT * FROM table1 ;';
 
     client.query(sql)
     .then(result=>{
