@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/style.css">
+    <title>home page</title>
+
+</head>
+<body>
+    <header>
+      
+        <a href="/">HOME</a>
+        <a href="/myProduct">MY CARD</a>
+    </header>
+
+    <main>
+
+        <form action="/product" method="get">
+            <input type="text" name="brand" placeholder="enter brand name">
+            <input type="text" name="lessthan" placeholder="enter price less than">
+            <input type="text" name="greaterthan" placeholder="enter price greaterthan than">
+
+            <button type="submit">search</button>
+
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+    font-size: large;
+}
+
+.card
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+body
+{
+    background-color: rgb(89, 119, 119);
+}
+
+main
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}

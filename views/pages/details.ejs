@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/style.css">
+    <title>product details</title>
+</head>
+<body>
+
+    <header>
+      
+        <a href="/">HOME</a>
+        <a href="/myProduct">MY CARD</a>
+    </header>
+
+    <main>
+
+        <% if (data.length === 0){ %> 
+            <h1>NO DATA SAVED </h1>
+
+
+            <%} else { %> 
+
+            <section class="card">
+                
+           <% data.forEach(element => { %>
+
+            <h2><%= element.name  %> </h2>
+            <h3><%= element.price  %></h3>
+            <img src="<%= element.image_link  %>" alt="">
+            <p><%= element.description  %></p>
+
+            <form action="/productDetails/<%= element.id %>?_method=put" method="post">
+
+                <input type="text" name="name" value="<%= element.name  %>">
+                <input type="text" name="price" value="<%= element.price  %>">
+                <input type="text" name="image_link" value="<%= element.image_link  %>">
+                <input type="text" name="description" value="<%= element.description  %>">
+                <button type="submit">update</button>
+
+            </form>
+
+            <form action="/productDetails/<%= element.id %>?_method=delete" method="post">
+                <button type="submit">delete</button>
+            </form>
+            
+
+
+
+            <%}); %> 
+            <%} %>
+            </section>
+
+    </main>
+</body>
+</html>
